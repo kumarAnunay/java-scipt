@@ -1,0 +1,35 @@
+<script>
+    // OR operator tries to give true. unless it finds all false.
+    // Logical operator with non boolean value:
+    var a = '' || 'world';
+    console.log(a); //world
+
+    var a = 'hello' || 'world';
+    console.log(a); //hello
+
+    var a = '' || '';
+    console.log(a); 
+
+    var b = '' || [];
+    console.log(b); //[]
+
+    var a = 'hello' || ''; // a = 'hello'
+    var b = '' || []; // b = []
+    var c = '' || undefined; // c = undefined
+    var d = 1 || 5; // d = 1
+    var e = 0 || {}; // e = {}
+    var f = 0 || '' || 5; // f = 5
+    var g = '' || 'yay' || 'boo';
+</script>
+
+
+<script>
+
+    //In &-and first false condition will be the ans
+    //If all conditions are true then it returns the last value
+    var b = '' && [] && {};
+    console.log(b);
+
+    var a = 'hello' && 'world';
+    console.log(a);
+</script>
