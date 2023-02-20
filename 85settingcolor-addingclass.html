@@ -1,0 +1,60 @@
+<html>
+
+<head>
+
+    <style>
+        .boxRed {
+            color: red;
+        }
+
+        .boxGreen {
+            color: green;
+        }
+
+        .boxYellow {
+            color: yellow;
+        }
+
+        .font{
+            font-size: 40px;
+        }
+
+        .border{
+            border: 2px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul>
+        <li class="heading">Pen</li>
+        <li class="heading">Pencil</li>
+        <li class="heading" id="list">Eraser</li>
+    </ul>
+
+    <script>
+
+        var input = document.getElementsByClassName("heading");
+        for (var obj of input) {
+            if (obj.innerHTML == "Pen") {
+                obj.classList.add("boxGreen");
+                obj.classList.add("font")
+                obj.classList.add("border")
+            }
+
+            else if (obj.innerHTML == "Pencil") {
+                obj.classList.add("boxYellow");
+            }
+
+            else {
+                obj.classList.add('boxRed');
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<html>
+
+<head>
+
+    <style>
+        .box {
+
+            color: green;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <p id="demo">Hello world</p>
+
+    <script>
+
+        var input = document.getElementById("demo");
+
+        input.classList.add('box');
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+<!-- <html>
+
+<head>
+
+    <style>
+        .box {
+
+            color: red;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul>
+
+        <li class="heading">Pen</li>
+
+        <li class="heading">Pencil</li>
+
+        <li class="heading" id="list">Eraser</li>
+
+    </ul>
+
+    <script>
+
+        var input = document.getElementsByClassName("heading");
+
+        for (var obj of input) {
+
+            console.log(obj.innerHTML);
+
+            obj.innerHTML = "details " + obj.innerHTML;
+
+            obj.classList.add('box');
+
+        }
+
+    </script>
+
+</body>
+
+</html> -->

@@ -1,0 +1,35 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <ul>
+
+        <li class="heading">Pen</li>
+
+        <li class="heading">Pencil</li>
+
+        <li class="heading" id="list">Eraser</li>
+
+    </ul>
+
+    <script>
+
+        var input = document.getElementsByClassName("heading");
+
+        for (var obj of input) {
+
+            console.log(obj.innerHTML);
+
+            obj.innerHTML = "details " + obj.innerHTML;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
