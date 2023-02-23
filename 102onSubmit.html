@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <form onSubmit="onSubmitHandler(event)">
+
+        FullName:<input type="text" name="fullName" />
+
+        <br /> <br />
+
+        Age:<input type="number" name="age" />
+
+        <br /> <br />
+
+        <button type="submit" value="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        function onSubmitHandler(event) {
+
+            //it will stop further event of form tag.going to action attribute and finding the next page
+
+            event.preventDefault();
+
+            var list = document.forms[0];
+
+            for (var i = 0; i < list.length; i++) {
+
+                console.log(list.elements[i].value);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

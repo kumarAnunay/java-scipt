@@ -1,0 +1,17 @@
+<html>
+    <head>
+    </head>
+    <body>
+        FullName:<input type="text" id="demo" name="fullName" onFocus="onSubmitHandler(event)" onChange="onChangeHandler(event)"/>
+        <script>
+            function onSubmitHandler(event){
+            // var input = document.getElementById('demo');
+             event.target.style.border = "10px solid yellow";
+            }
+            function onChangeHandler(event){
+                event.target.style.border = "10px solid blue";
+                event.target.style.fontSize = "30px";
+            }
+        </script>
+    </body>
+</html>
