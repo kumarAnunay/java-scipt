@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JS Methods</title>
+
+    <style>
+        .d-none {
+
+            display: none;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h3>JS Array Properties</h3>
+
+    <div>
+
+        <label for="input">Array</label>
+
+        <input type="text" id="input">
+
+        <button id="add">Add</button>
+
+    </div>
+
+    <div style="margin: 10px 0;">
+
+        <button id="join">Join</button>
+
+        <button id="even">Filter Even</button>
+
+        <button id="odd">Filter Odd</button>
+
+    </div>
+
+    <p id="display"></p>
+
+    <p id="error">Wrong Input!!</p>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
+
+const input = document.getElementById('input');
+
+const addBtn = document.getElementById('add');
+
+const display = document.getElementById('display');
+
+const even = document.getElementById('even');
+
+const odd = document.getElementById('odd');
+
+const join = document.getElementById('join');
+
+const inputArray = [];
+
+addBtn.addEventListener('click', () => {
+
+let str = input.value;
+
+let arr = str.split(',');
+
+let check = false;
+
+arr.map(l => {
+
+if(isNaN(l)){
+
+check = true;
+
+}else{
+
+inputArray.push(Number(l));
+
+}
+
+})
+
+if(check){
+
+document.getElementById('error').classList.remove('d-none');
+
+}else{
+
+document.getElementById('error').classList.add('d-none');
+
+display.innerHTML = JSON.stringify(inputArray);
+
+}
+
+})
+
+even.addEventListener('click', () => {
+
+let arr = inputArray.filter(x => x%2===0);
+
+display.innerHTML = JSON.stringify(arr);
+
+})
+
+odd.addEventListener('click', () => {
+
+let arr = inputArray.filter(x => x%2 !==0);
+
+display.innerHTML = JSON.stringify(arr);
+
+})
+
+join.addEventListener('click', () => {
+
+let str = inputArray.join('');
+
+display.innerHTML = str;
+
+})
+
+Shivani Rathor
+4m ago
+no no im not getting so i dont paste now
+
+Neetu
+3m ago
+Shivani aap recording dekh lena ,, u may get
+
+Kamaruddin Ansari
+just now
+yes shivani
+
+Afroj Ahmed
+just now
+okay sir please help us write code here on NS page only next time
+
+Neetu
+just now
+but it wasn't working there sir
+
+json needed
+
+yes
+
+ok
+
+yes
+
+Afroj Ahmed
+just now
+yes okay thank you sir we will try tomorrow again to pass test cases
+
+Shivani Rathor
+just now
+thnku sir
+
+Mehak Ayoob
+just now
+sir send your code
+
+Shivani Rathor
+just now
+sir working code konsa h?
+
+pls send again
+
+salman G
+just now
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <input type="text" id="input">
+
+    <button id="add" onclick="onAddHandler()">add</button>
+
+    <button id="even" onclick="even()">even</button>
+
+    <button id="odd" onclick="odd()">odd</button>
+
+    <button id="join" onclick="join()">join</button>
+
+    <div id="error"></div>
+
+    <div id="display"></div>
+
+    <script>
+
+        let globalArray = [];
+
+        function onAddHandler() {
+
+            let input = document.getElementById('input').value;
+
+            let result = input.split(',');
+
+            if (checkingNumberType(result)) {
+
+                document.getElementById('error').innerHTML = "Wrong Input!!"
+
+            }
+
+            else {
+
+                document.getElementById('error').innerHTML = "";
+
+                let tempResult = result.map((input) => {
+
+                    return Number(input);
+
+                })
+
+                globalArray = tempResult;
+
+                document.getElementById('display').innerHTML = '[' + result + ']';
+
+            }
+
+        }
+
+        function checkingNumberType(input) {
+
+            for (let i = 0; i < input.length; i++) {
+
+                if (isNaN(input[i])) {
+
+                    return true;
+
+                }
+
+            }
+
+            return false;
+
+        }
+
+        function even() {
+
+            if (globalArray.length > 0) {
+
+                let result = [];
+
+                for (let i = 0; i < globalArray.length; i++) {
+
+                    if (globalArray[i] % 2 == 0) {
+
+                        result.push(globalArray[i]);
+
+                    }
+
+                }
+
+                document.getElementById('display').innerHTML = '[' + result + ']';
+
+            }
+
+        }
+
+        function odd() {
+
+            if (globalArray.length > 0) {
+
+                let result = [];
+
+                for (let i = 0; i < globalArray.length; i++) {
+
+                    if (globalArray[i] % 2 != 0) {
+
+                        result.push(globalArray[i]);
+
+                    }
+
+                }
+
+                document.getElementById('display').innerHTML = '[' + result + ']';
+
+            }
+
+        }
+
+        function join() {
+
+            if (globalArray.length > 0) {
+
+                document.getElementById('display').innerHTML = globalArray.join('');
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
