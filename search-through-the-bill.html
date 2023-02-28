@@ -1,0 +1,172 @@
+<h1>Grocery Bill</h1>
+
+<input placeholder="search" id="search-bar" onchange="update()" />
+
+<table>
+
+</table>
+
+<script>
+
+    const originalItems = [{
+
+        id: 1,
+
+        itemName: "Bread",
+
+        price: 20
+
+    }, {
+
+        id: 2,
+
+        itemName: "Butter",
+
+        price: 50
+
+    }, {
+
+        id: 3,
+
+        itemName: "Tomatoes",
+
+        price: 30
+
+    }, {
+
+        id: 4,
+
+        itemName: "Onion",
+
+        price: 40
+
+    }, {
+
+        id: 5,
+
+        itemName: "Pomegranate",
+
+        price: 60
+
+    }, {
+
+        id: 6,
+
+        itemName: "Apple",
+
+        price: 40
+
+    }, {
+
+        id: 7,
+
+        itemName: "Grapes",
+
+        price: 30
+
+    }, {
+
+        id: 8,
+
+        itemName: "Mango",
+
+        price: 100
+
+    }]
+
+    function appendTableRow(status, idInput, itemInput, priceInput) {
+
+        let formatElement = status ? 'th' : 'td';
+
+        //<tr></tr>
+
+        let parentTRElement = document.createElement('tr');
+
+        //<th></th>
+
+        let childFirstElement = document.createElement(formatElement);
+
+        //<th></th>
+
+        let childSecondElement = document.createElement(formatElement);
+
+        //<th></th>
+
+        let childThirdElement = document.createElement(formatElement);
+
+        //id
+
+        let childFirstText = document.createTextNode(idInput);
+
+        //itemName
+
+        let childSecondText = document.createTextNode(itemInput);
+
+        //price
+
+        let childThirdText = document.createTextNode(priceInput);
+
+        //<th>id</th>
+
+        childFirstElement.appendChild(childFirstText);
+
+        //<th>itemName</th>
+
+        childSecondElement.appendChild(childSecondText);
+
+        //<th>price</th>
+
+        childThirdElement.appendChild(childThirdText);
+
+        //<tr><th>id</th></tr>
+
+        parentTRElement.appendChild(childFirstElement);
+
+        //<tr><th>id</th><th>itemName</th></tr>
+
+        parentTRElement.appendChild(childSecondElement);
+
+        //<tr><th>id</th><th>itemName</th></tr>
+
+        parentTRElement.appendChild(childThirdElement);
+
+        let table = document.getElementsByTagName('table')[0];
+
+        table.appendChild(parentTRElement);
+
+    }
+
+    function update() {
+
+        let input = document.getElementById('search-bar').value;
+
+        let result = originalItems.filter((obj) => {
+
+            return obj.itemName.toLowerCase().includes(input.toLowerCase());
+
+        });
+
+        console.log(result);
+
+    }
+
+
+    function initialTable(originalItems) {
+
+        appendTableRow(true, 'id', 'itemName', 'price');
+
+        if (originalItems.length > 0) {
+
+            for (let obj of originalItems) {
+
+                appendTableRow(false, obj.id, obj.itemName, obj.price);
+
+            }
+
+        }
+
+    }
+
+    initialTable(originalItems);
+
+</script>
